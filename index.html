@@ -78,20 +78,6 @@ vertical-align:-1px;margin-right:5px}
 .key .k1{background:hsl(38 92% 58% / .92)}
 .key .k2{background:hsl(38 92% 58% / .12)}
 .key .k3{background:hsl(205 90% 60% / .7)}
-#nf-setup{display:flex;gap:8px;margin-top:4px}
-#nf-topic{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);
-border-radius:10px;padding:11px 12px;color:var(--fg);font:400 13px var(--mono)}
-#nf-topic::placeholder{color:var(--mut);opacity:.7}
-#nf-save,.btn,.ghost{border:1px solid var(--line);border-radius:10px;padding:11px 16px;
-font:600 12px var(--mono);letter-spacing:.06em;cursor:pointer;background:var(--bg);
-color:var(--fg);text-decoration:none;display:inline-block}
-.btn{background:color-mix(in srgb,var(--acc) 16%,transparent);
-border-color:color-mix(in srgb,var(--acc) 45%,transparent);color:var(--acc)}
-.ghost{color:var(--mut);margin-left:8px}
-#nf-ready{display:flex;align-items:center;margin-top:4px}
-/* `display:flex` on an id beats the [hidden] attribute's display:none,
-   so both states rendered at once. These re-assert it explicitly. */
-#nf-ready[hidden],#nf-setup[hidden]{display:none}
 .bub-wrap{width:100%;height:auto;display:block;margin:6px 0 2px;overflow:visible}
 .bub .ring{fill:hsl(var(--h) 72% 55% / .08);stroke:hsl(var(--h) 80% 62% / .55);
 stroke-width:1.4;filter:drop-shadow(0 0 14px hsl(var(--h) 80% 58% / .3))}
@@ -159,7 +145,7 @@ details p{font-size:14px;color:var(--mut);line-height:1.65}
 </head><body><div class="w">
 
 <div class="hd"><h1>HERMES</h1>
-<div class="stamp">PRICES 2026-08-26<br>BUILT 2026-08-27 20:42 UTC</div></div>
+<div class="stamp">PRICES 2026-08-26<br>BUILT 2026-08-27 20:50 UTC</div></div>
 
 <div class="card">
   <p class="kicker">No signal firing</p>
@@ -241,28 +227,6 @@ details p{font-size:14px;color:var(--mut);line-height:1.65}
 </div>
 
 
-<div class="card" id="notif">
-  <p class="kicker">Notifications</p>
-  <p class="why" id="nf-why">Alerts go out three times a day, and immediately when a
-  signal fires. Paste your topic once &mdash; it is stored on this device only and is
-  never published with the page.</p>
-  <div id="nf-setup">
-    <input id="nf-topic" type="text" inputmode="text" autocapitalize="off"
-           autocorrect="off" spellcheck="false" placeholder="hermes-xxxxxxxxxxxxxxxx">
-    <button id="nf-save">Save</button>
-  </div>
-  <div id="nf-ready" hidden>
-    <a id="nf-open" class="btn" href="#" target="_blank" rel="noopener">Open in ntfy</a>
-    <button id="nf-forget" class="ghost">Forget</button>
-  </div>
-  <details><summary>WHY PASTE IT INSTEAD OF BUILT IN?</summary>
-  <p>This page is public. An ntfy topic is not just readable by anyone who knows
-  it &mdash; it is <b>writable</b> too, so a leaked topic lets a stranger push a fake
-  "BUY" alert that looks exactly like a real one. Keeping the topic in your
-  browser's local storage means the published page never carries it. Treat any
-  alert as a prompt to open this board, not as an instruction.</p></details>
-</div>
-
 <div class="card foot">
   <p class="kicker">Before you act</p>
   <p><b>This predicts nothing.</b> It describes where prices are and what usually
@@ -275,45 +239,7 @@ details p{font-size:14px;color:var(--mut);line-height:1.65}
 </div>
 
 </div>
-<script>
-(function () {
-  var KEY = 'hermes.ntfy.topic';
-  var setup = document.getElementById('nf-setup');
-  var ready = document.getElementById('nf-ready');
-  var input = document.getElementById('nf-topic');
-  var open  = document.getElementById('nf-open');
-  if (!setup) return;
 
-  function show(topic) {
-    if (topic) {
-      // ntfy:// opens the installed app; the https link is the fallback that
-      // works in Safari with nothing installed.
-      open.href = 'https://ntfy.sh/' + encodeURIComponent(topic);
-      setup.hidden = true; ready.hidden = false;
-      document.getElementById('nf-why').textContent =
-        'Subscribed to ' + topic + '. Stored on this device only.';
-    } else {
-      setup.hidden = false; ready.hidden = true;
-    }
-  }
-  var saved = null;
-  try { saved = localStorage.getItem(KEY); } catch (e) {}
-  show(saved);
-
-  document.getElementById('nf-save').addEventListener('click', function () {
-    var t = (input.value || '').trim();
-    if (!t) return;
-    try { localStorage.setItem(KEY, t); } catch (e) {}
-    show(t);
-  });
-  document.getElementById('nf-forget').addEventListener('click', function () {
-    try { localStorage.removeItem(KEY); } catch (e) {}
-    document.getElementById('nf-why').textContent =
-      'Alerts go out three times a day, and immediately when a signal fires.';
-    show(null);
-  });
-})();
-</script>
 <script>
 // Service workers need a secure origin. Over plain http:// on a LAN or tailnet
 // registration throws, and catching it silently would leave you believing the
