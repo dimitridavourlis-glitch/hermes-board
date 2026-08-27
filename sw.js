@@ -1,7 +1,7 @@
 // Cache-first. The dashboard is a snapshot with no live data, so serving a
 // cached copy is not a staleness compromise -- it is the correct behaviour.
 // A new snapshot ships a new cache name and evicts the old one.
-const CACHE = 'kratos-ea2cad40';
+const CACHE = 'kratos-32c14a3a';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
