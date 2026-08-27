@@ -1,111 +1,149 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark light">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="HERMES">
+<meta name="theme-color" content="#07070a">
 <title>HERMES</title><style>
-:root{--bg:#f6f6f4;--card:#fff;--fg:#1a1a19;--mut:#6b6b66;--line:#e2e2dd;
---pos:#1a7f5a;--neg:#b3261e;--accent:#2563eb}
-@media(prefers-color-scheme:dark){:root{--bg:#131312;--card:#1c1c1a;--fg:#eeeeec;
---mut:#9a9a94;--line:#2e2e2b;--pos:#4ade80;--neg:#f87171;--accent:#60a5fa}}
 *{box-sizing:border-box;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 -apple-system,
-BlinkMacSystemFont,system-ui,sans-serif;padding:max(18px,env(safe-area-inset-top)) 16px
-calc(28px + env(safe-area-inset-bottom))}
-.wrap{max-width:640px;margin:0 auto}
-h1{font-size:19px;font-weight:600;margin:0;letter-spacing:.14em}
-.sub{color:var(--mut);font-size:13px;margin:3px 0 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
-padding:20px;margin:16px 0}
-.lead{font-size:19px;line-height:1.55;margin:0}
-.lead b{font-weight:600}
-h2{font-size:17px;font-weight:600;margin:0 0 6px}
-.why{font-size:14.5px;color:var(--mut);margin:0 0 16px;line-height:1.55}
-.big{font-size:44px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;
-margin:4px 0 10px}
-.big span{font-size:17px;font-weight:400;color:var(--mut)}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th{text-align:right;font-size:11px;color:var(--mut);font-weight:500;text-transform:uppercase;
-letter-spacing:.04em;padding:0 0 10px}
+:root{--bg:#07070a;--card:#0e0e14;--fg:#e8e8f0;--mut:#7c7c92;--line:#1e1e2a;
+--acc:#5eead4;--warn:#fbbf24;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace}
+@media(prefers-color-scheme:light){:root{--bg:#fafaf9;--card:#fff;--fg:#12121a;
+--mut:#6b6b7b;--line:#e6e6ec;--acc:#0d9488}}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.6 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+padding:max(20px,env(safe-area-inset-top)) 16px calc(30px + env(safe-area-inset-bottom));
+background-image:radial-gradient(900px 500px at 50% -10%,
+  color-mix(in srgb,var(--acc) 9%,transparent),transparent 70%);
+background-attachment:fixed}
+.w{max-width:620px;margin:0 auto}
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+padding-bottom:16px;border-bottom:1px solid var(--line)}
+h1{font:600 15px/1 var(--mono);letter-spacing:.34em;margin:0;
+text-shadow:0 0 22px color-mix(in srgb,var(--acc) 55%,transparent)}
+.stamp{font:400 10.5px/1.5 var(--mono);color:var(--mut);text-align:right;letter-spacing:.04em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;
+padding:22px;margin:16px 0;animation:rise .5s cubic-bezier(.2,.8,.3,1) backwards}
+.card:nth-of-type(2){animation-delay:.06s} .card:nth-of-type(3){animation-delay:.12s}
+.card:nth-of-type(4){animation-delay:.18s} .card:nth-of-type(5){animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+@media(prefers-reduced-motion:reduce){.card{animation:none}}
+.kicker{font:500 10.5px/1 var(--mono);letter-spacing:.2em;color:var(--acc);
+text-transform:uppercase;margin:0 0 12px}
+.lead{font-size:20px;line-height:1.5;margin:0;font-weight:400}
+.lead b{font-weight:600;color:var(--acc)}
+.hero{display:flex;align-items:baseline;gap:12px;margin:2px 0 6px}
+.hero .v{font:600 68px/1 var(--mono);letter-spacing:-.03em;
+text-shadow:0 0 40px color-mix(in srgb,var(--acc) 35%,transparent)}
+.hero .o{font:400 22px/1 var(--mono);color:var(--mut)}
+.why{font-size:14.5px;color:var(--mut);line-height:1.6;margin:0 0 18px}
+.clus{margin:14px 0 0}
+.clab{display:flex;align-items:center;gap:7px;font:500 10.5px/1 var(--mono);
+letter-spacing:.14em;text-transform:uppercase;
+color:color-mix(in srgb,hsl(var(--h) 70% 62%) 88%,var(--fg));margin-bottom:7px}
+.clab em{font-style:normal;color:var(--mut);letter-spacing:0}
+.tiles{display:flex;flex-wrap:wrap;gap:5px}
+.tiles i{flex:0 0 auto;display:grid;place-items:center;min-width:46px;height:30px;
+padding:0 7px;border-radius:7px;font:600 10px/1 var(--mono);letter-spacing:.02em;
+background:color-mix(in srgb,hsl(var(--h) 70% 55%) 17%,transparent);
+border:1px solid color-mix(in srgb,hsl(var(--h) 70% 60%) 38%,transparent);
+color:hsl(var(--h) 72% 72%)}
+@media(prefers-color-scheme:light){.tiles i{color:hsl(var(--h) 62% 32%)}}
+.bar{display:grid;grid-template-columns:92px 1fr 38px;align-items:center;gap:10px;
+margin:9px 0;font:500 11px/1 var(--mono);letter-spacing:.05em}
+.bn{color:var(--mut);text-transform:uppercase;font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bt{height:7px;border-radius:4px;background:var(--line);overflow:hidden;display:block}
+.bt i{display:block;height:100%;width:var(--w);border-radius:4px;
+background:linear-gradient(90deg,color-mix(in srgb,hsl(var(--h) 70% 55%) 45%,transparent),
+hsl(var(--h) 75% 60%));animation:grow .8s cubic-bezier(.2,.8,.3,1) backwards}
+@keyframes grow{from{width:0}}
+.bv{text-align:right;color:var(--fg)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:right;font:500 9px/1.3 var(--mono);letter-spacing:.08em;color:var(--mut);
+text-transform:uppercase;padding:0 0 11px 10px;white-space:nowrap}
 th:first-child,th.l{text-align:left}
-td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
-td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-td.sym{font-weight:600}
-td.plain{color:var(--mut);font-size:13px;padding-left:10px}
-td.verdict{font-size:12px;color:var(--mut)}
-details{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-summary{font-size:14px;color:var(--accent);cursor:pointer;font-weight:500}
-details p{font-size:14px;color:var(--mut);line-height:1.6}
-.foot{font-size:13.5px;color:var(--mut);line-height:1.65}
-.foot b{color:var(--fg)}
+td{padding:9px 0;border-top:1px solid var(--line)}
+td.num{text-align:right;font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+td.sym{font:600 12.5px/1.4 var(--mono);letter-spacing:.03em}
+td.st{color:var(--mut);font-size:12.5px;text-align:right;white-space:nowrap;
+font-family:var(--mono)}
+td.hold{color:var(--mut)}
+td.sig{text-align:right;font:600 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--mut)}
+details{margin-top:14px;border-top:1px solid var(--line);padding-top:13px}
+summary{font:500 12.5px/1 var(--mono);letter-spacing:.06em;color:var(--acc);cursor:pointer}
+details p{font-size:14px;color:var(--mut);line-height:1.65}
+.foot p{font-size:13.5px;color:var(--mut);line-height:1.65;margin:0 0 12px}
+.foot b{color:var(--fg);font-weight:600}
 </style><link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
 <meta name="theme-color" content="#131312">
-</head><body><div class="wrap">
+</head><body><div class="w">
 
-<div><h1>HERMES</h1>
-<p class="sub">Prices from 2026-08-26 &middot; page built 2026-08-27 18:54 UTC</p></div>
+<div class="hd"><h1>HERMES</h1>
+<div class="stamp">PRICES 2026-08-26<br>BUILT 2026-08-27 19:13 UTC</div></div>
 
 <div class="card">
-  <p class="lead">Today, <b>nothing on your list looks like a good trade</b> —
-  and the bigger issue is that your 36 tickers are really only about
-  <b>6 different bets</b>.</p>
+  <p class="kicker">Today</p>
+  <p class="lead">Nothing on your list looks like <b>a good trade</b>. And your
+  36 tickers are really only about <b>6 different bets</b>.</p>
 </div>
 
 <div class="card">
-  <h2>You own fewer things than you think</h2>
-  <p class="why">Buying 36 tickers feels spread out. But if they rise and fall
-  together, you have really made the same bet many times — and when it goes
-  wrong, it goes wrong everywhere at once.</p>
-  <div class="big">6.3 <span>real bets, out of 36 tickers</span></div>
-  <table><thead><tr><th class="l">group</th><th>how many</th><th>together</th><th class="l">&nbsp;</th></tr></thead>
-  <tbody><tr><td>indices</td><td class='num'>3</td><td class='num'>83%</td><td class='plain'>move almost as one</td></tr><tr><td>crypto</td><td class='num'>10</td><td class='num'>82%</td><td class='plain'>move almost as one</td></tr><tr><td>energy</td><td class='num'>3</td><td class='num'>75%</td><td class='plain'>move almost as one</td></tr><tr><td>gold</td><td class='num'>4</td><td class='num'>69%</td><td class='plain'>move together a lot</td></tr><tr><td>crypto_equity</td><td class='num'>5</td><td class='num'>60%</td><td class='plain'>move together a lot</td></tr><tr><td>defensive</td><td class='num'>6</td><td class='num'>36%</td><td class='plain'>fairly independent</td></tr><tr><td>tech</td><td class='num'>5</td><td class='num'>23%</td><td class='plain'>fairly independent</td></tr></tbody></table>
-  <p class="why" style="margin:16px 0 0"><b style="color:var(--fg)">15 of your
-  36 tickers (42%) are basically one bet on crypto</b> — the coins
-  themselves plus COIN, MSTR, MARA, RIOT and HOOD, which mostly follow crypto anyway.</p>
-  <details><summary>What does "together" mean?</summary>
-  <p>It is how closely two things move in step, as a percentage. 100% means they
-  move identically. 0% means knowing one tells you nothing about the other.
-  Above roughly 70%, you are holding one position wearing several names.</p></details>
+  <p class="kicker">Concentration</p>
+  <div class="hero"><span class="v">6.3</span><span class="o">/ 36 tickers</span></div>
+  <p class="why">Each block below is one bet. A block with ten tickers in it is
+  still <em>one</em> bet — they rise and fall together, so when it goes wrong it
+  goes wrong all at once.</p>
+  <div class="clus" style="--h:190"><span class="clab">indices<em>3</em></span><div class="tiles"><i style="--h:190" title="IWM"><b>IWM</b></i><i style="--h:190" title="QQQ"><b>QQQ</b></i><i style="--h:190" title="SPY"><b>SPY</b></i></div></div><div class="clus" style="--h:275"><span class="clab">crypto<em>10</em></span><div class="tiles"><i style="--h:275" title="ADA-USD"><b>ADA</b></i><i style="--h:275" title="AVAX-USD"><b>AVAX</b></i><i style="--h:275" title="BNB-USD"><b>BNB</b></i><i style="--h:275" title="BTC-USD"><b>BTC</b></i><i style="--h:275" title="DOGE-USD"><b>DOGE</b></i><i style="--h:275" title="ETH-USD"><b>ETH</b></i><i style="--h:275" title="LINK-USD"><b>LINK</b></i><i style="--h:275" title="LTC-USD"><b>LTC</b></i><i style="--h:275" title="SOL-USD"><b>SOL</b></i><i style="--h:275" title="XRP-USD"><b>XRP</b></i></div></div><div class="clus" style="--h:20"><span class="clab">energy<em>3</em></span><div class="tiles"><i style="--h:20" title="CVX"><b>CVX</b></i><i style="--h:20" title="OXY"><b>OXY</b></i><i style="--h:20" title="XOM"><b>XOM</b></i></div></div><div class="clus" style="--h:45"><span class="clab">gold<em>4</em></span><div class="tiles"><i style="--h:45" title="AEM"><b>AEM</b></i><i style="--h:45" title="GLD"><b>GLD</b></i><i style="--h:45" title="GOLD"><b>GOLD</b></i><i style="--h:45" title="NEM"><b>NEM</b></i></div></div><div class="clus" style="--h:300"><span class="clab">crypto equity<em>5</em></span><div class="tiles"><i style="--h:300" title="COIN"><b>COIN</b></i><i style="--h:300" title="HOOD"><b>HOOD</b></i><i style="--h:300" title="MARA"><b>MARA</b></i><i style="--h:300" title="MSTR"><b>MSTR</b></i><i style="--h:300" title="RIOT"><b>RIOT</b></i></div></div><div class="clus" style="--h:150"><span class="clab">defensive<em>6</em></span><div class="tiles"><i style="--h:150" title="DUK"><b>DUK</b></i><i style="--h:150" title="JNJ"><b>JNJ</b></i><i style="--h:150" title="KO"><b>KO</b></i><i style="--h:150" title="PG"><b>PG</b></i><i style="--h:150" title="TLT"><b>TLT</b></i><i style="--h:150" title="VZ"><b>VZ</b></i></div></div><div class="clus" style="--h:200"><span class="clab">tech<em>5</em></span><div class="tiles"><i style="--h:200" title="AAPL"><b>AAPL</b></i><i style="--h:200" title="AMZN"><b>AMZN</b></i><i style="--h:200" title="MSFT"><b>MSFT</b></i><i style="--h:200" title="NVDA"><b>NVDA</b></i><i style="--h:200" title="TSLA"><b>TSLA</b></i></div></div>
+  <details><summary>HOW CAN 36 BE 6?</summary>
+  <p>Things that move in step are not separate bets. If ten coins all follow
+  Bitcoin, owning all ten is close to owning one position three times over. The
+  number counts how many genuinely different outcomes you are exposed to.</p>
+  </details>
 </div>
 
 <div class="card">
-  <h2>Nothing is flashing a signal</h2>
-  <p class="why">A signal is only useful if it beats simply knowing that markets
-  usually drift upward. For every ticker here, the popular "price is above its
-  average, so it is going up" rule turned out to be worth almost nothing once
-  measured against that baseline.</p>
-  <table>
-  <thead><tr><th class="l">ticker</th><th>price</th><th class="l">&nbsp;where it is</th>
-  <th>hold at least</th><th>signal</th></tr></thead>
-  <tbody><tr><td class='sym'>TSLA</td><td class='num'>345.82</td><td class='plain'>well below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>DUK</td><td class='num'>121.89</td><td class='plain'>a little below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>MSTR</td><td class='num'>123.19</td><td class='plain'>far below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>BTC-USD</td><td class='num'>79,027.42</td><td class='plain'>well below its recent high</td><td class='num'>4 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>HOOD</td><td class='num'>108.54</td><td class='plain'>a little below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>MSFT</td><td class='num'>496.37</td><td class='plain'>near its highest point this year</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>ETH-USD</td><td class='num'>2,506.26</td><td class='plain'>well below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>AVAX-USD</td><td class='num'>7.45</td><td class='plain'>far below its recent high</td><td class='num'>2 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>DOGE-USD</td><td class='num'>0.09</td><td class='plain'>far below its recent high</td><td class='num'>2 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>MARA</td><td class='num'>11.22</td><td class='plain'>well below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>NVDA</td><td class='num'>209.66</td><td class='plain'>a little below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>LTC-USD</td><td class='num'>50.53</td><td class='plain'>far below its recent high</td><td class='num'>3 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>SOL-USD</td><td class='num'>102.17</td><td class='plain'>far below its recent high</td><td class='num'>2 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>TLT</td><td class='num'>83.30</td><td class='plain'>a little below its recent high</td><td class='num'>6 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>GLD</td><td class='num'>421.32</td><td class='plain'>well below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>SPY</td><td class='num'>766.08</td><td class='plain'>near its highest point this year</td><td class='num'>4 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>RIOT</td><td class='num'>20.61</td><td class='plain'>well below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>QQQ</td><td class='num'>711.37</td><td class='plain'>a little below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>PG</td><td class='num'>145.00</td><td class='plain'>a little below its recent high</td><td class='num'>2 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>XOM</td><td class='num'>158.19</td><td class='plain'>a little below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>IWM</td><td class='num'>298.93</td><td class='plain'>near its highest point this year</td><td class='num'>3 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>BNB-USD</td><td class='num'>707.88</td><td class='plain'>well below its recent high</td><td class='num'>6 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>AEM</td><td class='num'>214.04</td><td class='plain'>a little below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>AAPL</td><td class='num'>313.45</td><td class='plain'>a little below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>KO</td><td class='num'>90.08</td><td class='plain'>near its highest point this year</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>LINK-USD</td><td class='num'>11.62</td><td class='plain'>well below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>OXY</td><td class='num'>58.62</td><td class='plain'>a little below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>GOLD</td><td class='num'>45.49</td><td class='plain'>well below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>NEM</td><td class='num'>131.60</td><td class='plain'>near its highest point this year</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>AMZN</td><td class='num'>260.28</td><td class='plain'>a little below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>ADA-USD</td><td class='num'>0.21</td><td class='plain'>far below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>COIN</td><td class='num'>181.78</td><td class='plain'>well below its recent high</td><td class='num'>0 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>VZ</td><td class='num'>50.19</td><td class='plain'>near its highest point this year</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>XRP-USD</td><td class='num'>1.42</td><td class='plain'>far below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>JNJ</td><td class='num'>270.00</td><td class='plain'>near its highest point this year</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr><tr><td class='sym'>CVX</td><td class='num'>200.21</td><td class='plain'>a little below its recent high</td><td class='num'>1 days</td><td class='num verdict'>no signal</td></tr></tbody></table>
-  <details><summary>Why does it say "no signal" on everything?</summary>
-  <p>Take an example. One ticker rose over the next two months 74% of the time
-  when it was above its average — which sounds strong. But it also rose 73% of
-  the time regardless. So the rule added one point. That is noise, not
-  information. Most trading advice quotes the 74% and never mentions the 73%.</p>
-  </details>
-  <details><summary>What is "hold at least"?</summary>
-  <p>Every buy-and-sell pair costs money in fees and spread. That cost is fixed,
-  but the price move you are trying to capture grows the longer you wait. Below
-  the number shown, fees eat more than a tenth of the typical move and your
-  choice of when to buy stops mattering. It is a floor, not a suggestion.</p>
-  </details>
+  <p class="kicker">How tightly each group moves</p>
+  <div class="bar" style="--h:190;--w:83%"><span class="bn">indices</span><span class="bt"><i></i></span><span class="bv">83%</span></div><div class="bar" style="--h:275;--w:82%"><span class="bn">crypto</span><span class="bt"><i></i></span><span class="bv">82%</span></div><div class="bar" style="--h:20;--w:75%"><span class="bn">energy</span><span class="bt"><i></i></span><span class="bv">75%</span></div><div class="bar" style="--h:45;--w:69%"><span class="bn">gold</span><span class="bt"><i></i></span><span class="bv">69%</span></div><div class="bar" style="--h:300;--w:60%"><span class="bn">crypto equity</span><span class="bt"><i></i></span><span class="bv">60%</span></div><div class="bar" style="--h:150;--w:36%"><span class="bn">defensive</span><span class="bt"><i></i></span><span class="bv">36%</span></div><div class="bar" style="--h:200;--w:23%"><span class="bn">tech</span><span class="bt"><i></i></span><span class="bv">23%</span></div>
+  <p class="why" style="margin:18px 0 0"><b style="color:var(--fg)">15 of your
+  36 tickers &mdash; 42% &mdash; are one bet on crypto.</b> The coins, plus
+  COIN, MSTR, MARA, RIOT and HOOD, which mostly follow crypto anyway.</p>
+  <details><summary>WHAT DOES THE % MEAN?</summary>
+  <p>How closely things move in step. 100% is identical. 0% means one tells you
+  nothing about the other. Above about 70%, you are holding one position under
+  several names.</p></details>
+</div>
+
+<div class="card">
+  <p class="kicker">Every ticker &mdash; no signal anywhere</p>
+  <table><thead><tr><th class="l">ticker</th><th>price</th>
+  <th>vs high</th><th>min hold</th><th>signal</th></tr></thead>
+  <tbody><tr><td class="sym">TSLA</td><td class="num">345.82</td><td class="st">-29%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">DUK</td><td class="num">121.89</td><td class="st">-7%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">MSTR</td><td class="num">123.19</td><td class="st">-37%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">BTC</td><td class="num">79,027.42</td><td class="st">-18%</td><td class="num hold">4d</td><td class="sig">—</td></tr><tr><td class="sym">HOOD</td><td class="num">108.54</td><td class="st">-12%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">MSFT</td><td class="num">496.37</td><td class="st">at high</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">ETH</td><td class="num">2,506.26</td><td class="st">-25%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">AVAX</td><td class="num">7.45</td><td class="st">-49%</td><td class="num hold">2d</td><td class="sig">—</td></tr><tr><td class="sym">DOGE</td><td class="num">0.09</td><td class="st">-42%</td><td class="num hold">2d</td><td class="sig">—</td></tr><tr><td class="sym">MARA</td><td class="num">11.22</td><td class="st">-24%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">NVDA</td><td class="num">209.66</td><td class="st">-11%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">LTC</td><td class="num">50.53</td><td class="st">-40%</td><td class="num hold">3d</td><td class="sig">—</td></tr><tr><td class="sym">SOL</td><td class="num">102.17</td><td class="st">-30%</td><td class="num hold">2d</td><td class="sig">—</td></tr><tr><td class="sym">TLT</td><td class="num">83.30</td><td class="st">-6%</td><td class="num hold">6d</td><td class="sig">—</td></tr><tr><td class="sym">GLD</td><td class="num">421.32</td><td class="st">-15%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">SPY</td><td class="num">766.08</td><td class="st">at high</td><td class="num hold">4d</td><td class="sig">—</td></tr><tr><td class="sym">RIOT</td><td class="num">20.61</td><td class="st">-28%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">QQQ</td><td class="num">711.37</td><td class="st">-5%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">PG</td><td class="num">145.00</td><td class="st">-12%</td><td class="num hold">2d</td><td class="sig">—</td></tr><tr><td class="sym">XOM</td><td class="num">158.19</td><td class="st">-7%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">IWM</td><td class="num">298.93</td><td class="st">at high</td><td class="num hold">3d</td><td class="sig">—</td></tr><tr><td class="sym">BNB</td><td class="num">707.88</td><td class="st">-25%</td><td class="num hold">6d</td><td class="sig">—</td></tr><tr><td class="sym">AEM</td><td class="num">214.04</td><td class="st">-15%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">AAPL</td><td class="num">313.45</td><td class="st">-8%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">KO</td><td class="num">90.08</td><td class="st">at high</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">LINK</td><td class="num">11.62</td><td class="st">-18%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">OXY</td><td class="num">58.62</td><td class="st">-11%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">GOLD</td><td class="num">45.49</td><td class="st">-28%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">NEM</td><td class="num">131.60</td><td class="st">at high</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">AMZN</td><td class="num">260.28</td><td class="st">-8%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">ADA</td><td class="num">0.21</td><td class="st">-50%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">COIN</td><td class="num">181.78</td><td class="st">-29%</td><td class="num hold">0d</td><td class="sig">—</td></tr><tr><td class="sym">VZ</td><td class="num">50.19</td><td class="st">at high</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">XRP</td><td class="num">1.42</td><td class="st">-39%</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">JNJ</td><td class="num">270.00</td><td class="st">at high</td><td class="num hold">1d</td><td class="sig">—</td></tr><tr><td class="sym">CVX</td><td class="num">200.21</td><td class="st">-3%</td><td class="num hold">1d</td><td class="sig">—</td></tr></tbody></table>
+  <details><summary>WHY IS EVERY SIGNAL BLANK?</summary>
+  <p>One ticker rose over the next two months 74% of the time when it was above
+  its average &mdash; which sounds strong. But it rose 73% of the time anyway. The
+  rule added one point. That is noise. Most trading advice quotes the 74% and
+  never mentions the 73%.</p></details>
+  <details><summary>WHAT IS MIN HOLD?</summary>
+  <p>Every buy-and-sell pair costs fees and spread. That cost is fixed, but the
+  price move you are trying to catch grows the longer you wait. Trade faster
+  than this and fees eat more than a tenth of the typical move, so your timing
+  stops mattering. A floor, not a suggestion.</p></details>
 </div>
 
 <div class="card foot">
-  <h2 style="margin-bottom:10px">Before you act on this</h2>
-  <p><b>This does not predict anything.</b> It describes where prices are now and
-  what has usually followed in the past. The past is not a promise, and even a
-  60% historical hit rate went the other way four times in ten.</p>
-  <p><b>It cannot see anything others cannot.</b> Every number comes from public
-  closing prices available to everybody.</p>
-  <p><b>The most useful thing here is the concentration number</b>, because it is
-  the only one that is actually knowable rather than guessed.</p>
-  <p style="margin-bottom:0">A snapshot, not a live feed &mdash; nothing is watching the
-  market for you. If <b>page built</b> at the top stops changing, it has stopped
-  updating and you are reading old numbers. Not financial advice.</p>
+  <p class="kicker">Before you act</p>
+  <p><b>This predicts nothing.</b> It describes where prices are and what usually
+  followed. Even a 60% hit rate went the other way four times in ten.</p>
+  <p><b>It sees nothing others can't.</b> Every figure comes from public closing
+  prices.</p>
+  <p><b>The concentration number is the useful one</b> &mdash; it is the only thing here
+  that is actually known rather than guessed.</p>
+  <p style="margin:0"><b>A snapshot, not a live feed.</b> If <b>BUILT</b> at the top stops
+  changing, it has stopped updating and these numbers are stale. Not financial advice.</p>
 </div>
 
 </div><script>
