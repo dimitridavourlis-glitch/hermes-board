@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="HERMES">
+<title>HERMES</title><style>
+:root{--bg:#f6f6f4;--card:#fff;--fg:#1a1a19;--mut:#6b6b66;--line:#e2e2dd;
+--pos:#1a7f5a;--neg:#b3261e;--warn:#8a6d1f;--accent:#2563eb}
+@media(prefers-color-scheme:dark){:root{--bg:#131312;--card:#1c1c1a;--fg:#eeeeec;
+--mut:#9a9a94;--line:#2e2e2b;--pos:#4ade80;--neg:#f87171;--warn:#d4b95e;--accent:#60a5fa}}
+*{box-sizing:border-box;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,
+BlinkMacSystemFont,system-ui,sans-serif;padding:max(16px,env(safe-area-inset-top)) 14px
+calc(24px + env(safe-area-inset-bottom))}
+.wrap{max-width:680px;margin:0 auto}
+h1{font-size:20px;font-weight:600;margin:0;letter-spacing:.14em}
+.sub{color:var(--mut);font-size:12px;margin:2px 0 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:16px;margin:14px 0}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);
+margin:0 0 12px;font-weight:600}
+.badge{font-size:11px;font-weight:600;padding:5px 10px;border-radius:999px}
+.badge.bad{background:color-mix(in srgb,var(--neg) 15%,transparent);color:var(--neg)}
+.badge.ok{background:color-mix(in srgb,var(--pos) 15%,transparent);color:var(--pos)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.big{font-size:34px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.big small{font-size:14px;font-weight:400;color:var(--mut);display:block;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th{text-align:right;font-size:10px;color:var(--mut);font-weight:500;text-transform:uppercase;
+letter-spacing:.04em;padding:0 0 8px}
+th:first-child{text-align:left}
+td{padding:6px 0;border-top:1px solid var(--line)}
+td.num{text-align:right} td.sym{font-weight:600}
+tr.crypto td.sym{color:var(--accent)}
+.pos{color:var(--pos)} .neg{color:var(--neg)} .mut{color:var(--mut)}
+.up{color:var(--pos);text-align:right;font-size:11px}
+.dn{color:var(--mut);text-align:right;font-size:11px}
+.edge{font-weight:600}
+.note{font-size:12.5px;color:var(--mut);line-height:1.6}
+.note strong{color:var(--fg)}
+ul{margin:8px 0 0;padding-left:18px} li{margin:6px 0}
+</style><link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="theme-color" content="#131312">
+</head><body><div class="wrap">
+
+<div class="head">
+  <div><h1>HERMES</h1><p class="sub">board as of 2026-08-26 · 36 assets</p></div>
+  <span class="badge bad">No asset on the board</span>
+</div>
+
+<div class="card">
+  <h2>The only decidable number here</h2>
+  <div class="big">6.3<small>independent bets, across 36 tickers.
+  You are watching 36 names and holding about 6 distinct ideas.</small></div>
+</div>
+
+<div class="card">
+  <h2>Where the overlap is</h2>
+  <table><thead><tr><th>group</th><th>names</th><th>median corr</th></tr></thead>
+  <tbody><tr><td>indices</td><td class='num'>3</td><td class='num neg'>0.83</td></tr><tr><td>crypto</td><td class='num'>10</td><td class='num neg'>0.82</td></tr><tr><td>energy</td><td class='num'>3</td><td class='num neg'>0.75</td></tr><tr><td>gold</td><td class='num'>4</td><td class='num neg'>0.69</td></tr><tr><td>crypto_equity</td><td class='num'>5</td><td class='num '>0.60</td></tr><tr><td>defensive</td><td class='num'>6</td><td class='num '>0.36</td></tr><tr><td>tech</td><td class='num'>5</td><td class='num '>0.23</td></tr></tbody></table>
+  <p class="note" style="margin-top:12px"><strong>15 of 36 names
+  (42%) are one crypto bet</strong> — the coins plus COIN, MSTR, MARA,
+  RIOT and HOOD, median correlation 0.64. Sizing them as separate
+  positions is how a portfolio ends up far more concentrated than its ticker count suggests.</p>
+</div>
+
+<div class="card">
+  <h2>No asset on the board shows an edge beyond ±8 points</h2>
+  <table>
+  <thead><tr><th>sym</th><th>price</th><th>52wHi</th><th>trend</th><th>12-1</th>
+  <th>vol</th><th>pct</th><th>hold</th><th>edge</th></tr></thead>
+  <tbody><tr class=''><td class='sym'>TSLA</td><td class='num'>345.82</td><td class='num neg'>-29%</td><td class='dn'>below</td><td class='num neg'>-25%</td><td class='num'>50%</td><td class='num mut'>68%</td><td class='num'>0d</td><td class='num edge'>+7%</td></tr><tr class=''><td class='sym'>DUK</td><td class='num'>121.89</td><td class='num '>-7%</td><td class='dn'>below</td><td class='num pos'>+2%</td><td class='num'>17%</td><td class='num mut'>81%</td><td class='num'>1d</td><td class='num edge'>+6%</td></tr><tr class=''><td class='sym'>MSTR</td><td class='num'>123.19</td><td class='num neg'>-37%</td><td class='dn'>below</td><td class='num neg'>-44%</td><td class='num'>64%</td><td class='num mut'>67%</td><td class='num'>0d</td><td class='num edge'>+5%</td></tr><tr class='crypto'><td class='sym'>BTC-USD</td><td class='num'>79,027.42</td><td class='num '>-18%</td><td class='up'>above</td><td class='num neg'>-29%</td><td class='num'>31%</td><td class='num mut'>15%</td><td class='num'>4d</td><td class='num edge'>+4%</td></tr><tr class=''><td class='sym'>HOOD</td><td class='num'>108.54</td><td class='num '>-12%</td><td class='up'>above</td><td class='num neg'>-28%</td><td class='num'>59%</td><td class='num mut'>66%</td><td class='num'>0d</td><td class='num edge'>+4%</td></tr><tr class=''><td class='sym'>MSFT</td><td class='num'>496.37</td><td class='num '>-2%</td><td class='up'>above</td><td class='num pos'>+1%</td><td class='num'>38%</td><td class='num mut'>97%</td><td class='num'>0d</td><td class='num edge'>+4%</td></tr><tr class='crypto'><td class='sym'>ETH-USD</td><td class='num'>2,506.26</td><td class='num neg'>-25%</td><td class='up'>above</td><td class='num neg'>-37%</td><td class='num'>50%</td><td class='num mut'>23%</td><td class='num'>1d</td><td class='num edge'>+4%</td></tr><tr class='crypto'><td class='sym'>AVAX-USD</td><td class='num'>7.45</td><td class='num neg'>-49%</td><td class='dn'>below</td><td class='num neg'>-55%</td><td class='num'>46%</td><td class='num mut'>8%</td><td class='num'>2d</td><td class='num edge'>+3%</td></tr><tr class='crypto'><td class='sym'>DOGE-USD</td><td class='num'>0.09</td><td class='num neg'>-42%</td><td class='dn'>below</td><td class='num neg'>-55%</td><td class='num'>47%</td><td class='num mut'>16%</td><td class='num'>2d</td><td class='num edge'>+3%</td></tr><tr class=''><td class='sym'>MARA</td><td class='num'>11.22</td><td class='num neg'>-24%</td><td class='up'>above</td><td class='num pos'>+1%</td><td class='num'>82%</td><td class='num mut'>46%</td><td class='num'>0d</td><td class='num edge'>+2%</td></tr><tr class=''><td class='sym'>NVDA</td><td class='num'>209.66</td><td class='num '>-11%</td><td class='up'>above</td><td class='num pos'>+22%</td><td class='num'>31%</td><td class='num mut'>35%</td><td class='num'>0d</td><td class='num edge'>+2%</td></tr><tr class='crypto'><td class='sym'>LTC-USD</td><td class='num'>50.53</td><td class='num neg'>-40%</td><td class='dn'>below</td><td class='num neg'>-48%</td><td class='num'>36%</td><td class='num mut'>9%</td><td class='num'>3d</td><td class='num edge'>+2%</td></tr><tr class='crypto'><td class='sym'>SOL-USD</td><td class='num'>102.17</td><td class='num neg'>-30%</td><td class='up'>above</td><td class='num neg'>-48%</td><td class='num'>41%</td><td class='num mut'>1%</td><td class='num'>2d</td><td class='num edge'>+2%</td></tr><tr class=''><td class='sym'>TLT</td><td class='num'>83.30</td><td class='num '>-6%</td><td class='dn'>below</td><td class='num neg'>-5%</td><td class='num'>8%</td><td class='num mut'>25%</td><td class='num'>6d</td><td class='num edge'>+1%</td></tr><tr class=''><td class='sym'>GLD</td><td class='num'>421.32</td><td class='num '>-15%</td><td class='up'>above</td><td class='num pos'>+2%</td><td class='num'>20%</td><td class='num mut'>92%</td><td class='num'>1d</td><td class='num edge'>+1%</td></tr><tr class=''><td class='sym'>SPY</td><td class='num'>766.08</td><td class='num '>-2%</td><td class='up'>above</td><td class='num pos'>+14%</td><td class='num'>10%</td><td class='num mut'>44%</td><td class='num'>4d</td><td class='num edge'>+1%</td></tr><tr class=''><td class='sym'>RIOT</td><td class='num'>20.61</td><td class='num neg'>-28%</td><td class='up'>above</td><td class='num pos'>+44%</td><td class='num'>85%</td><td class='num mut'>60%</td><td class='num'>0d</td><td class='num edge'>+0%</td></tr><tr class=''><td class='sym'>QQQ</td><td class='num'>711.37</td><td class='num '>-5%</td><td class='up'>above</td><td class='num pos'>+17%</td><td class='num'>19%</td><td class='num mut'>69%</td><td class='num'>1d</td><td class='num edge'>+0%</td></tr><tr class=''><td class='sym'>PG</td><td class='num'>145.00</td><td class='num '>-12%</td><td class='dn'>below</td><td class='num pos'>+1%</td><td class='num'>16%</td><td class='num mut'>76%</td><td class='num'>2d</td><td class='num edge'>+0%</td></tr><tr class=''><td class='sym'>XOM</td><td class='num'>158.19</td><td class='num '>-7%</td><td class='up'>above</td><td class='num pos'>+34%</td><td class='num'>21%</td><td class='num mut'>60%</td><td class='num'>1d</td><td class='num edge'>-1%</td></tr><tr class=''><td class='sym'>IWM</td><td class='num'>298.93</td><td class='num '>-2%</td><td class='up'>above</td><td class='num pos'>+22%</td><td class='num'>11%</td><td class='num mut'>18%</td><td class='num'>3d</td><td class='num edge'>-1%</td></tr><tr class='crypto'><td class='sym'>BNB-USD</td><td class='num'>707.88</td><td class='num neg'>-25%</td><td class='up'>above</td><td class='num neg'>-33%</td><td class='num'>25%</td><td class='num mut'>3%</td><td class='num'>6d</td><td class='num edge'>-1%</td></tr><tr class=''><td class='sym'>AEM</td><td class='num'>214.04</td><td class='num '>-15%</td><td class='up'>above</td><td class='num neg'>-4%</td><td class='num'>44%</td><td class='num mut'>92%</td><td class='num'>0d</td><td class='num edge'>-1%</td></tr><tr class=''><td class='sym'>AAPL</td><td class='num'>313.45</td><td class='num '>-8%</td><td class='up'>above</td><td class='num pos'>+12%</td><td class='num'>26%</td><td class='num mut'>79%</td><td class='num'>1d</td><td class='num edge'>-2%</td></tr><tr class=''><td class='sym'>KO</td><td class='num'>90.08</td><td class='num '>-2%</td><td class='up'>above</td><td class='num pos'>+22%</td><td class='num'>21%</td><td class='num mut'>93%</td><td class='num'>1d</td><td class='num edge'>-2%</td></tr><tr class='crypto'><td class='sym'>LINK-USD</td><td class='num'>11.62</td><td class='num '>-18%</td><td class='up'>above</td><td class='num neg'>-39%</td><td class='num'>49%</td><td class='num mut'>7%</td><td class='num'>1d</td><td class='num edge'>-2%</td></tr><tr class=''><td class='sym'>OXY</td><td class='num'>58.62</td><td class='num '>-11%</td><td class='up'>above</td><td class='num pos'>+32%</td><td class='num'>30%</td><td class='num mut'>67%</td><td class='num'>0d</td><td class='num edge'>-2%</td></tr><tr class=''><td class='sym'>GOLD</td><td class='num'>45.49</td><td class='num neg'>-28%</td><td class='up'>above</td><td class='num pos'>+60%</td><td class='num'>42%</td><td class='num mut'>76%</td><td class='num'>0d</td><td class='num edge'>-2%</td></tr><tr class=''><td class='sym'>NEM</td><td class='num'>131.60</td><td class='num '>-3%</td><td class='up'>above</td><td class='num pos'>+16%</td><td class='num'>39%</td><td class='num mut'>83%</td><td class='num'>0d</td><td class='num edge'>-2%</td></tr><tr class=''><td class='sym'>AMZN</td><td class='num'>260.28</td><td class='num '>-8%</td><td class='up'>above</td><td class='num pos'>+19%</td><td class='num'>39%</td><td class='num mut'>88%</td><td class='num'>0d</td><td class='num edge'>-3%</td></tr><tr class='crypto'><td class='sym'>ADA-USD</td><td class='num'>0.21</td><td class='num neg'>-50%</td><td class='dn'>below</td><td class='num neg'>-56%</td><td class='num'>64%</td><td class='num mut'>31%</td><td class='num'>1d</td><td class='num edge'>-3%</td></tr><tr class=''><td class='sym'>COIN</td><td class='num'>181.78</td><td class='num neg'>-29%</td><td class='up'>above</td><td class='num neg'>-43%</td><td class='num'>59%</td><td class='num mut'>45%</td><td class='num'>0d</td><td class='num edge'>-4%</td></tr><tr class=''><td class='sym'>VZ</td><td class='num'>50.19</td><td class='num '>-0%</td><td class='up'>above</td><td class='num pos'>+19%</td><td class='num'>24%</td><td class='num mut'>93%</td><td class='num'>1d</td><td class='num edge'>-5%</td></tr><tr class='crypto'><td class='sym'>XRP-USD</td><td class='num'>1.42</td><td class='num neg'>-39%</td><td class='up'>above</td><td class='num neg'>-52%</td><td class='num'>55%</td><td class='num mut'>35%</td><td class='num'>1d</td><td class='num edge'>-5%</td></tr><tr class=''><td class='sym'>JNJ</td><td class='num'>270.00</td><td class='num '>-1%</td><td class='up'>above</td><td class='num pos'>+25%</td><td class='num'>21%</td><td class='num mut'>93%</td><td class='num'>1d</td><td class='num edge'>-6%</td></tr><tr class=''><td class='sym'>CVX</td><td class='num'>200.21</td><td class='num '>-3%</td><td class='up'>above</td><td class='num pos'>+27%</td><td class='num'>21%</td><td class='num mut'>65%</td><td class='num'>1d</td><td class='num edge'>-7%</td></tr></tbody></table>
+  <p class="note" style="margin-top:12px"><strong>EDGE</strong> is how much the trend
+  state beats knowing nothing — the hit rate when above trend, minus the hit rate in
+  all windows. Anything inside ±8 points is noise, because these windows overlap
+  heavily. <strong>HOLD</strong> is the shortest horizon on which costs stay under 10%
+  of the average move; below it the entry rule stops mattering and the broker takes
+  the edge.</p>
+</div>
+
+<div class="card note">
+  <h2>What this cannot tell you</h2>
+  <ul>
+    <li><strong>Which trades to place.</strong> The edge column is how you would know,
+    and it is empty. Nothing here was validated as a strategy, and the strategies that
+    were — trend, momentum, reversal, low-vol, over 27 years — did not beat buy-and-hold
+    after costs.</li>
+    <li><strong>Anything about the next 60 days.</strong> A 60% historical hit
+    rate means it went the other way four times in ten, and you do not learn which draw
+    you are in until afterwards.</li>
+    <li><strong>Anything the price has not already absorbed.</strong> Every figure is
+    computed from public closes that everyone else can also see.</li>
+  </ul>
+  <p style="margin-bottom:0">Daily closes, fetched on demand. Nothing is monitoring the
+  market — this is a snapshot taken when you ran the command. Generated 2026-08-27 18:30 UTC.</p>
+</div>
+
+</div><script>
+// Service workers need a secure origin. Over plain http:// on a LAN or tailnet
+// registration throws, and catching it silently would leave you believing the
+// app works offline when it does not. So it is reported in the page.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  navigator.serviceWorker.register('./sw.js').then(
+    () => document.documentElement.dataset.offline = 'ready',
+    err => document.documentElement.dataset.offline = 'failed: ' + err.message
+  );
+} else {
+  document.documentElement.dataset.offline = 'unavailable-over-http';
+}
+window.addEventListener('load', () => {
+  const el = document.getElementById('offline-state');
+  if (!el) return;
+  const s = document.documentElement.dataset.offline || 'unknown';
+  el.textContent = s === 'ready'
+    ? 'Cached for offline use.'
+    : (s === 'unavailable-over-http'
+        ? 'Served over http — needs the Mac awake. Serve over https for offline use.'
+        : 'Offline cache ' + s);
+});
+</script>
+</body></html>
